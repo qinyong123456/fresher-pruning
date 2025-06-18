@@ -8,6 +8,7 @@ import torch
 import torch.distributed as dist
 import torch.nn as nn
 import torch.nn.functional as F
+from mmcv.utils import print_log  # 新版 MMCV 中 print_log 位于 utils 模块
 from mmcv.runner import HOOKS
 from mmcv.runner.checkpoint import load_checkpoint, save_checkpoint
 from mmcv.runner.dist_utils import master_only

@@ -18,9 +18,10 @@ def print_log(msg, logger=None, level=logging.INFO):
     else:
         logger.log(level, msg)
 # 修改为（MMCV 2.x / MMEngine）
-from mmengine.runner import HOOKS, Hook
+# 修改导入语句
+from mmengine.runner.hooks import HOOKS, Hook
 from mmengine.runner.checkpoint import load_checkpoint, save_checkpoint
-from mmengine.dist import master_only  # 注意：dist_utils 改为 mmengine.dist
+from mmengine.dist import master_only
 from torch.nn import Conv2d
 from torch.nn.modules.batchnorm import _BatchNorm
 

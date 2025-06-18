@@ -8,7 +8,15 @@ import torch
 import torch.distributed as dist
 import torch.nn as nn
 import torch.nn.functional as F
-from mmcv.utils.logging import print_log
+# 在 fisher_pruning.py 文件顶部添加
+import logging
+
+def print_log(msg, logger=None, level=logging.INFO):
+    """自定义 print_log 函数，替代 mmcv 中的实现"""
+    if logger is None:
+        print(msg)
+    else:
+        logger.log(level, msg)
 from mmcv.runner import HOOKS
 from mmcv.runner.checkpoint import load_checkpoint, save_checkpoint
 from mmcv.runner.dist_utils import master_only
